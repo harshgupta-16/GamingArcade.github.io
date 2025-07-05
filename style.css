@@ -16,8 +16,8 @@ body {
     padding: 1.5em 0em;
     position: absolute;
     top: 30%;
-    left: 22.5%;
-    width: 55%;
+    left: 20%;
+    width: 60%;
 }
 
 .welcome {
@@ -26,6 +26,7 @@ body {
 }
 
 .heading {
+    /* border: 2px solid white; */
     text-transform: uppercase;
     font: 700 4em/1 "Oswald", sans-serif;
     letter-spacing: 2px;
@@ -39,6 +40,11 @@ body {
 
     -webkit-text-fill-color: transparent;
     -webkit-animation: aitf 80s linear infinite;
+
+    position: relative;
+    color: #222;
+    padding: 0.2em 0.6em;
+    overflow: hidden;
 }
 
 
@@ -52,43 +58,91 @@ body {
     }
 }
 
-.glow-on-hover {
-    width: 300px;
-    height: 40px;
-    letter-spacing: .15em;
-    font-size: 14px;
-    color: #fff;
-    background: #111;
-    cursor: pointer;
-    position: relative;
-    z-index: 0;
-    border-radius: 10px;
-    animation: glowing 1s ease-in-out infinite alternate;
+
+/* Both overlays */
+.heading::before,
+.heading::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  width: 60%;
+  height: 100%;
+  background: #000000;
+  transform: translateX(0);
+  transition: transform 2s ease-in;
+  transition-delay: 0.5s;
+  z-index: 1;
 }
 
+.heading::before {
+  left: 0;
+  clip-path: polygon(
+    0% 0%,     /* top-left corner */
+    80% 0%,    /* top-right */
+    100% 100%, /* bottom-right */
+    0% 100%    /* bottom-left corner */
+  );
+}
+
+.heading::after {
+  right: 0;
+  left: auto;
+  clip-path: polygon(
+    00% 00%,     /* top-left */
+    100% 0%,    /* top-right */
+    100% 100%,  /* bottom-right */
+    20% 100%     /* bottom-left */
+  );
+}
+
+.heading.active::before {
+  transform: translateX(-100%);
+}
+
+.heading.active::after {
+  transform: translateX(100%);
+}
+
+.glow-on-hover {
+  width: 300px;
+  height: 40px;
+  letter-spacing: .15em;
+  font-size: 14px;
+  color: #fff;
+  background: #111;
+  cursor: pointer;
+  position: relative;
+  z-index: 0;
+  border-radius: 10px;
+  opacity: 0; 
+  transform: translateY(10px); 
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.glow-on-hover.active {
+  opacity: 1; 
+  transform: translateY(0);
+  animation: glowing 1s ease-in-out infinite alternate;
+}
 
 @keyframes glowing {
-    from {
-        box-shadow: 0 0 10px #ff4d00,
-            0 0 0px #ff4d00;
-    }
-
-    to {
-        box-shadow: 0 0 10px #ff4d00,
-            0 0 20px #ff4d00;
-    }
-
+  from {
+    box-shadow: 0 0 10px #ff4d00, 0 0 0px #ff4d00;
+  }
+  to {
+    box-shadow: 0 0 10px #ff4d00, 0 0 20px #ff4d00;
+  }
 }
 
 .glow-on-hover:hover {
-    animation-play-state: paused;
-    color: #ff4d00;
+  animation-play-state: paused;
+  color: #ff4d00;
 }
 
 .glow-on-hover:active {
-    animation-play-state: paused;
-    color: #ffffff;
-    background-color: #ff5e19;
+  animation-play-state: paused;
+  color: #ffffff;
+  background-color: #ff5e19;
 }
 
 @media (max-width:1450px) {
@@ -103,11 +157,25 @@ body {
         letter-spacing: .15em;
         border-radius: 10px;
     }
+
+    @keyframes glowing {
+        from {
+            box-shadow: 0 0 7px #ff4d00,
+                0 0 0px #ff4d00;
+        }
+
+        to {
+            box-shadow: 0 0 7px #ff4d00,
+                0 0 15px #ff4d00;
+        }
+
+    }
+
 }
 
 @media (max-width:1000px) {
     body {
-        font: 10px "Neuton";
+        font: 12px "Neuton";
     }
 
     .glow-on-hover {
@@ -116,5 +184,18 @@ body {
         font-size: 8px;
         letter-spacing: .15em;
         border-radius: 10px;
+    }
+
+    @keyframes glowing {
+        from {
+            box-shadow: 0 0 5px #ff4d00,
+                0 0 0px #ff4d00;
+        }
+
+        to {
+            box-shadow: 0 0 5px #ff4d00,
+                0 0 10px #ff4d00;
+        }
+
     }
 }
