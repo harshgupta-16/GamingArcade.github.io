@@ -4,7 +4,7 @@ const rules = document.getElementById("rules");
 const canvas = document.getElementById("canvas");
 const ctx = canvas.getContext("2d");
 const color = getComputedStyle(document.documentElement).getPropertyValue(
-    "--block-color"
+    "--button-color"
 );
 const secondaryColor = getComputedStyle(
     document.documentElement
@@ -31,7 +31,7 @@ const ball = {
 const paddle = {
     x: canvas.width / 2 - 40,
     y: canvas.height - 20,
-    w: 130,
+    w: 150,
     h: 10,
     speed: 9,
     dx: 0,
@@ -68,11 +68,8 @@ function drawBall() {
 function drawPaddle() {
     ctx.beginPath();
     ctx.rect(paddle.x, paddle.y, paddle.w, paddle.h);
-    // ctx.fillStyle = color;
-    // ctx.fill();
-    ctx.strokeStyle = "red";
-    ctx.lineWidth = 2;
-    ctx.stroke();
+    ctx.fillStyle = color;
+    ctx.fill();
     ctx.closePath();
 }
 
@@ -86,11 +83,8 @@ function drawBricks() {
         column.forEach((brick) => {
             ctx.beginPath();
             ctx.rect(brick.x, brick.y, brick.w, brick.h);
-            ctx.fillStyle = brick.visible ? "#ff0000" : "transparent";
+            ctx.fillStyle = brick.visible ? color : "transparent";
             ctx.fill();
-            ctx.strokeStyle = "white";
-            ctx.lineWidth = 1.5;
-            ctx.stroke();
             ctx.closePath();
         });
     });
