@@ -4,17 +4,15 @@ const rules = document.getElementById("rules");
 const canvas = document.getElementById("canvas");
 const ctx = canvas.getContext("2d");
 const color = getComputedStyle(document.documentElement).getPropertyValue(
-    "--button-color"
+    "--block-color"
 );
 const secondaryColor = getComputedStyle(
     document.documentElement
 ).getPropertyValue("--sidebar-color");
 let score = 0;
 const brickRowCount = 9;
-const brickColumnCount = 5;
+const brickColumnCount = 7;
 
-// Reference: https://stackoverflow.com/questions/34772957/how-to-make-canvas-responsive
-// https://stackoverflow.com/questions/39771732/drawing-to-responsive-canvas-that-is-100-width-and-height
 const heightRatio = 0.75;
 canvas.height = canvas.width * heightRatio;
 ctx.canvas.width = 800;
@@ -25,17 +23,17 @@ const ball = {
     x: canvas.width / 2,
     y: canvas.height / 2,
     size: 10,
-    speed: 4,
-    dx: 4,
-    dy: -4,
+    speed: 3,
+    dx: 3,
+    dy: -3,
 };
 
 const paddle = {
     x: canvas.width / 2 - 40,
     y: canvas.height - 20,
-    w: 80,
+    w: 130,
     h: 10,
-    speed: 8,
+    speed: 9,
     dx: 0,
 };
 
@@ -70,8 +68,11 @@ function drawBall() {
 function drawPaddle() {
     ctx.beginPath();
     ctx.rect(paddle.x, paddle.y, paddle.w, paddle.h);
-    ctx.fillStyle = color;
-    ctx.fill();
+    // ctx.fillStyle = color;
+    // ctx.fill();
+    ctx.strokeStyle = "red";
+    ctx.lineWidth = 2;
+    ctx.stroke();
     ctx.closePath();
 }
 
@@ -85,8 +86,11 @@ function drawBricks() {
         column.forEach((brick) => {
             ctx.beginPath();
             ctx.rect(brick.x, brick.y, brick.w, brick.h);
-            ctx.fillStyle = brick.visible ? color : "transparent";
+            ctx.fillStyle = brick.visible ? "#ff0000" : "transparent";
             ctx.fill();
+            ctx.strokeStyle = "white";
+            ctx.lineWidth = 1.5;
+            ctx.stroke();
             ctx.closePath();
         });
     });

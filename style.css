@@ -58,91 +58,97 @@ body {
     }
 }
 
-
 /* Both overlays */
 .heading::before,
 .heading::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  width: 60%;
-  height: 100%;
-  background: #000000;
-  transform: translateX(0);
-  transition: transform 2s ease-in;
-  transition-delay: 0.5s;
-  z-index: 1;
+    content: '';
+    position: absolute;
+    top: 0;
+    width: 60%;
+    height: 100%;
+    background: #000000;
+    transform: translateX(0);
+    transition: transform 2s ease-in;
+    transition-delay: 0.5s;
+    z-index: 1;
 }
 
 .heading::before {
-  left: 0;
-  clip-path: polygon(
-    0% 0%,     /* top-left corner */
-    80% 0%,    /* top-right */
-    100% 100%, /* bottom-right */
-    0% 100%    /* bottom-left corner */
-  );
+    left: 0;
+    clip-path: polygon(0% 0%,
+            /* top-left corner */
+            80% 0%,
+            /* top-right */
+            100% 100%,
+            /* bottom-right */
+            0% 100%
+            /* bottom-left corner */
+        );
 }
 
 .heading::after {
-  right: 0;
-  left: auto;
-  clip-path: polygon(
-    00% 00%,     /* top-left */
-    100% 0%,    /* top-right */
-    100% 100%,  /* bottom-right */
-    20% 100%     /* bottom-left */
-  );
+    right: 0;
+    left: auto;
+    clip-path: polygon(00% 00%,
+            /* top-left */
+            100% 0%,
+            /* top-right */
+            100% 100%,
+            /* bottom-right */
+            20% 100%
+            /* bottom-left */
+        );
 }
 
 .heading.active::before {
-  transform: translateX(-100%);
+    transform: translateX(-100%);
 }
 
 .heading.active::after {
-  transform: translateX(100%);
+    transform: translateX(100%);
 }
 
 .glow-on-hover {
-  width: 300px;
-  height: 40px;
-  letter-spacing: .15em;
-  font-size: 14px;
-  color: #fff;
-  background: #111;
-  cursor: pointer;
-  position: relative;
-  z-index: 0;
-  border-radius: 10px;
-  opacity: 0; 
-  transform: translateY(10px); 
-  transition: opacity 0.6s ease, transform 0.6s ease;
+    width: 300px;
+    height: 40px;
+    letter-spacing: .15em;
+    font-size: 14px;
+    color: #fff;
+    background: #111;
+    cursor: pointer;
+    position: relative;
+    z-index: 0;
+    border-radius: 10px;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
 }
 
 .glow-on-hover.active {
-  opacity: 1; 
-  transform: translateY(0);
-  animation: glowing 1s ease-in-out infinite alternate;
+    opacity: 1;
+    transform: translateY(0);
+    animation: glowing 1s ease-in-out infinite alternate;
 }
 
 @keyframes glowing {
-  from {
-    box-shadow: 0 0 10px #ff4d00, 0 0 0px #ff4d00;
-  }
-  to {
-    box-shadow: 0 0 10px #ff4d00, 0 0 20px #ff4d00;
-  }
+    from {
+        box-shadow: 0 0 10px #ff4d00, 0 0 0px #ff4d00;
+    }
+
+    to {
+        box-shadow: 0 0 10px #ff4d00, 0 0 20px #ff4d00;
+    }
 }
 
 .glow-on-hover:hover {
-  animation-play-state: paused;
-  color: #ff4d00;
+    animation-play-state: paused;
+    color: #ff4d00;
 }
 
 .glow-on-hover:active {
-  animation-play-state: paused;
-  color: #ffffff;
-  background-color: #ff5e19;
+    animation-play-state: paused;
+    color: #ffffff;
+    background-color: #ff5e19;
 }
 
 @media (max-width:1450px) {
