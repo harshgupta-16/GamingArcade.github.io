@@ -208,18 +208,18 @@ body {
 
 @media (max-width:450px) {
     body {
-        font: 0.5rem "Neuton";
+        font: 9px "Neuton";
     }
 
     .welcome {
-        letter-spacing: .10em;
+        letter-spacing: .20em;
     }
 
     .glow-on-hover {
-        width: 140px;
+        width: 150px;
         height: 26px;
         font-size: 7px;
-        letter-spacing: .10em;
+        letter-spacing: .15em;
         border-radius: 10px;
     }
 
@@ -234,5 +234,23 @@ body {
                 0 0 10px #ff4d00;
         }
 
+    }
+}
+
+@media (max-width:350px) {
+    body {
+        font: 7px "Neuton";
+    }
+
+    .welcome {
+        letter-spacing: .16em;
+    }
+
+    .glow-on-hover {
+        width: 140px;
+        height: 25px;
+        font-size: 7px;
+        letter-spacing: .15em;
+        border-radius: 8px;
     }
 }
