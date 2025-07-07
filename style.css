@@ -239,7 +239,7 @@ body {
 
 @media (max-width:350px) {
     body {
-        font: 7px "Neuton";
+        font: 6px "Neuton";
     }
 
     .welcome {
@@ -247,9 +247,9 @@ body {
     }
 
     .glow-on-hover {
-        width: 140px;
+        width: 130px;
         height: 25px;
-        font-size: 7px;
+        font-size: 6px;
         letter-spacing: .15em;
         border-radius: 8px;
     }
