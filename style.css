@@ -43,7 +43,6 @@ body {
 
     position: relative;
     color: #222;
-    padding: 0.2em 0.6em;
     overflow: hidden;
 }
 
@@ -179,7 +178,7 @@ body {
 
 }
 
-@media (max-width:1000px) {
+@media (max-width:1050px) {
     body {
         font: 12px "Neuton";
     }
@@ -239,7 +238,7 @@ body {
 
 @media (max-width:350px) {
     body {
-        font: 6px "Neuton";
+        font: 8px "Neuton";
     }
 
     .welcome {
