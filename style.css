@@ -215,6 +215,10 @@ body {
         letter-spacing: .20em;
     }
 
+    .heading{
+        font-size: 4em;
+    }
+
     .glow-on-hover {
         width: 150px;
         height: 26px;
