@@ -208,22 +208,18 @@ body {
 
 @media (max-width:450px) {
     body {
-        font: 9px "Neuton";
+        font: 0.5rem "Neuton";
     }
 
     .welcome {
-        letter-spacing: .20em;
-    }
-
-    .heading{
-        font-size: 4em;
+        letter-spacing: .10em;
     }
 
     .glow-on-hover {
-        width: 150px;
+        width: 140px;
         height: 26px;
         font-size: 7px;
-        letter-spacing: .15em;
+        letter-spacing: .10em;
         border-radius: 10px;
     }
 
