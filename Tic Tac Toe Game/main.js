@@ -1,6 +1,6 @@
 const boxEls = document.querySelectorAll('.box');
 const statusEl = document.querySelector('.status');
-const restartBtnEl = document.querySelector('.restartBtn');
+const restartBtnEl = document.querySelector('.restart');
 let x = "<img src='X-Player.png'>";
 let o = "<img src='O-Player.png'>";
 
